@@ -560,7 +560,7 @@
       endfunction
 
       let g:unite_data_directory=s:get_cache_dir('unite')
-      let g:unite_enable_start_insert=1
+      """let g:unite_enable_start_insert=1
       let g:unite_source_history_yank_enable=1
       let g:unite_source_rec_max_cache_files=5000
       let g:unite_prompt='» '
@@ -575,6 +575,7 @@
         let g:unite_source_grep_recursive_opt=''
       endif
 
+      source ~/.vim/settings/unite.vim
       """function! s:unite_settings()
         """nmap <buffer> Q <plug>(unite_exit)
         """nmap <buffer> <esc> <plug>(unite_exit)
@@ -599,7 +600,6 @@
       """nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
       """nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
       """nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-      source ~/.vim/settings/unite.vim
     "}}}
     NeoBundleLazy 'Shougo/neomru.vim', {'autoload':{'unite_sources':'file_mru'}}
     NeoBundleLazy 'osyo-manga/unite-airline_themes', {'autoload':{'unite_sources':'airline_themes'}} "{{{
