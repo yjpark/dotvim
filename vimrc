@@ -525,14 +525,14 @@
         let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
       endif
 
-      nmap \ [ctrlp]
-      nnoremap [ctrlp] <nop>
+      """nmap \ [ctrlp]
+      """nnoremap [ctrlp] <nop>
 
-      nnoremap [ctrlp]t :CtrlPBufTag<cr>
-      nnoremap [ctrlp]T :CtrlPTag<cr>
-      nnoremap [ctrlp]l :CtrlPLine<cr>
-      nnoremap [ctrlp]o :CtrlPFunky<cr>
-      nnoremap [ctrlp]b :CtrlPBuffer<cr>
+      """nnoremap [ctrlp]t :CtrlPBufTag<cr>
+      """nnoremap [ctrlp]T :CtrlPTag<cr>
+      """nnoremap [ctrlp]l :CtrlPLine<cr>
+      """nnoremap [ctrlp]o :CtrlPFunky<cr>
+      """nnoremap [ctrlp]b :CtrlPBuffer<cr>
     "}}}
     NeoBundleLazy 'scrooloose/nerdtree', {'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}} "{{{
       let NERDTreeShowHidden=1
