@@ -260,9 +260,9 @@
   autocmd WinEnter * setlocal cursorline
   let &colorcolumn=s:settings.max_column
   if s:settings.enable_cursorcolumn
-    set cursorcolumn
-    autocmd WinLeave * setlocal nocursorcolumn
-    autocmd WinEnter * setlocal cursorcolumn
+    set nocursorcolumn
+    autocmd InsertLeave * setlocal nocursorcolumn
+    autocmd InsertEnter * setlocal cursorcolumn
   endif
 
   if has('conceal')
@@ -661,8 +661,16 @@
       let g:startify_session_dir = s:get_cache_dir('sessions')
       let g:startify_change_to_vcs_root = 1
       let g:startify_show_sessions = 1
-      nnoremap <F1> :Startify<cr>
-    "}}}
+      """nnoremap <F1> :Startify<cr>
+
+      let g:startify_skiplist = [
+            \ 'COMMIT_EDITMSG',
+            \ $VIMRUNTIME . '/doc',
+            \ '\.janus/.*/doc',
+            \ 'vim/.*/doc',
+            \ '\.DS_Store'
+            \ ]
+      "}}}
     NeoBundle 'scrooloose/syntastic' "{{{
       let g:syntastic_error_symbol = '✗'
       let g:syntastic_style_error_symbol = '✠'
@@ -712,8 +720,8 @@
   vmap <leader>s :sort<cr>
 
   " eval vimscript by line or visual selection
-  nmap <silent> <leader>e :call Source(line('.'), line('.'))<CR>
-  vmap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
+  nmap <leader>e :call Source(line('.'), line('.'))<CR>
+  vmap <leader>e :call Source(line('v'), line('.'))<CR>
 
   """nnoremap <leader>w :w<cr>
 
