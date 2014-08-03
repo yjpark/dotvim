@@ -139,8 +139,8 @@
 "}}}
 
 " base configuration {{{
-  set timeoutlen=300                                  "mapping timeout
-  set ttimeoutlen=50                                  "keycode timeout
+  set timeoutlen=500                                  "mapping timeout
+  set ttimeoutlen=0                                   "keycode timeout
 
   set mouse=a                                         "enable mouse
   set mousehide                                       "hide when characters are typed
@@ -193,7 +193,7 @@
   set scrolljump=5                                    "minimum number of lines to scroll
   set display+=lastline
   set wildmenu                                        "show list for autocomplete
-  set wildmode=list:full
+  set wildmode=longest:full
   set wildignorecase
 
   set splitbelow
@@ -239,8 +239,8 @@
     call EnsureExists(&directory)
   "}}}
 
-  let mapleader = ","
-  let g:mapleader = ","
+  " let mapleader = ","
+  " let g:mapleader = ","
 "}}}
 
 " ui configuration {{{
@@ -322,10 +322,10 @@
     NeoBundle 'tpope/vim-dispatch'
     NeoBundle 'tpope/vim-eunuch'
     NeoBundle 'tpope/vim-unimpaired' "{{{
-      nmap <c-up> [e
-      nmap <c-down> ]e
-      vmap <c-up> [egv
-      vmap <c-down> ]egv
+      """nmap <c-up> [e
+      """nmap <c-down> ]e
+      """vmap <c-up> [egv
+      """vmap <c-down> ]egv
     "}}}
     NeoBundle 'Shougo/vimproc.vim', {
       \ 'build': {
@@ -465,7 +465,7 @@
   if count(s:settings.plugin_groups, 'editing') "{{{
     NeoBundleLazy 'editorconfig/editorconfig-vim', {'autoload':{'insert':1}}
     NeoBundle 'tpope/vim-endwise'
-    NeoBundle 'tpope/vim-speeddating'
+    """NeoBundle 'tpope/vim-speeddating'
     NeoBundle 'thinca/vim-visualstar'
     NeoBundle 'tomtom/tcomment_vim'
     NeoBundle 'terryma/vim-expand-region'
@@ -715,43 +715,43 @@
   nmap <silent> <leader>e :call Source(line('.'), line('.'))<CR>
   vmap <silent> <leader>e :call Source(line('v'), line('.'))<CR>
 
-  nnoremap <leader>w :w<cr>
+  """nnoremap <leader>w :w<cr>
 
   " toggle paste
   map <F6> :set invpaste<CR>:set paste?<CR>
 
   " remap arrow keys
-  nnoremap <left> :bprev<CR>
-  nnoremap <right> :bnext<CR>
-  nnoremap <up> :tabnext<CR>
-  nnoremap <down> :tabprev<CR>
+  """nnoremap <left> :bprev<CR>
+  """nnoremap <right> :bnext<CR>
+  """nnoremap <up> :tabnext<CR>
+  """nnoremap <down> :tabprev<CR>
 
   " smash escape
-  inoremap jk <esc>
-  inoremap kj <esc>
+  """inoremap jk <esc>
+  """inoremap kj <esc>
 
   " change cursor position in insert mode
-  inoremap <C-h> <left>
-  inoremap <C-l> <right>
+  """inoremap <C-h> <left>
+  """inoremap <C-l> <right>
 
-  inoremap <C-u> <C-g>u<C-u>
+  """inoremap <C-u> <C-g>u<C-u>
 
-  if mapcheck('<space>/') == ''
-    nnoremap <space>/ :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
-  endif
+  """if mapcheck('<space>/') == ''
+  """  nnoremap <space>/ :vimgrep //gj **/*<left><left><left><left><left><left><left><left>
+  """endif
 
   " sane regex {{{
-    nnoremap / /\v
-    vnoremap / /\v
-    nnoremap ? ?\v
-    vnoremap ? ?\v
-    nnoremap :s/ :s/\v
+    """nnoremap / /\v
+    """nvnoremap / /\v
+    """nnnoremap ? ?\v
+    """nvnoremap ? ?\v
+    """nnnoremap :s/ :s/\v
   " }}}
 
   " command-line window {{{
-    nnoremap q: q:i
-    nnoremap q/ q/i
-    nnoremap q? q?i
+    """nnoremap q: q:i
+    """nnoremap q/ q/i
+    """nnoremap q? q?i
   " }}}
 
   " folds {{{
@@ -799,32 +799,32 @@
   "}}}
 
   " tab shortcuts
-  map <leader>tn :tabnew<CR>
-  map <leader>tc :tabclose<CR>
+  """map <leader>tn :tabnew<CR>
+  """map <leader>tc :tabclose<CR>
 
   " make Y consistent with C and D. See :help Y.
   nnoremap Y y$
 
   " hide annoying quit message
-  nnoremap <C-c> <C-c>:echo<cr>
+  """nnoremap <C-c> <C-c>:echo<cr>
 
   " window killer
   nnoremap <silent> Q :call CloseWindowOrKillBuffer()<cr>
 
   " quick buffer open
-  nnoremap gb :ls<cr>:e #
+  """nnoremap gb :ls<cr>:e #
 
-  if neobundle#is_sourced('vim-dispatch')
-    nnoremap <leader>tag :Dispatch ctags -R<cr>
-  endif
+  """if neobundle#is_sourced('vim-dispatch')
+  """  nnoremap <leader>tag :Dispatch ctags -R<cr>
+  """endif
 
   " general
   nmap <leader>l :set list! list?<cr>
   nnoremap <BS> :set hlsearch! hlsearch?<cr>
 
-  map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-        \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-        \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+  """map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+  """      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+  """      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
   " helpers for profiling {{{
     nnoremap <silent> <leader>DD :exe ":profile start profile.log"<cr>:exe ":profile func *"<cr>:exe ":profile file *"<cr>
@@ -870,7 +870,7 @@
     let g:kolor_underlined=1
   "}}}
 
-  exec 'colorscheme '.s:settings.colorscheme
+  """exec 'colorscheme '.s:settings.colorscheme
 "}}}
 
 " finish loading {{{
