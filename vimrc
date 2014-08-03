@@ -575,7 +575,6 @@
         let g:unite_source_grep_recursive_opt=''
       endif
 
-      source ~/.vim/settings/unite.vim
       """function! s:unite_settings()
         """nmap <buffer> Q <plug>(unite_exit)
         """nmap <buffer> <esc> <plug>(unite_exit)
